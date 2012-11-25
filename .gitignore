@@ -1,0 +1,17 @@
+# Added these lines to .gitignore
+# xcode noise
+build/*
+*.mode1v3
+xcuserdata
+xcuserdata/*
+.svn
+.svn/*
+
+# osx noise
+.DS_Store
+profile
+
+$ vi .gitattrbutes
+
+# Added this line to .gitattributes
+*.pbxproj -crlf -diff -merge
