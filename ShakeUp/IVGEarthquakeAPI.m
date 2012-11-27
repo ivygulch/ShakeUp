@@ -25,7 +25,13 @@
 
 - (NSArray *) retrieveCurrentData;
 {
-    return [NSArray arrayWithObject:[[IVGEarthquake alloc] init]];
+    NSArray *dictionaryEntries = [self.earthquakeDataService loadData];
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:[dictionaryEntries count]];
+    for (NSDictionary *dict in dictionaryEntries) {
+        IVGEarthquake *earthquake = [[IVGEarthquake alloc] init];
+        [result addObject:earthquake];
+    }
+    return result;
 }
 
 @end
