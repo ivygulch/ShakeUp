@@ -18,7 +18,7 @@
 @property (nonatomic,assign) double longitude;
 @property (nonatomic,assign) double magnitude;
 @property (nonatomic,assign) double depth;
-@property (nonatomic,strong) NSString *nst;
+@property (nonatomic,assign) NSInteger nst;
 @property (nonatomic,strong) NSString *region;
 
 @end
