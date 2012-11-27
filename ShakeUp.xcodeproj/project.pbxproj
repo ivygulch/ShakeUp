@@ -10,6 +10,8 @@
 		F81AF3E61662C5C20050120B /* IVGEarthquakeAPISpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E51662C5C20050120B /* IVGEarthquakeAPISpecs.m */; };
 		F81AF3EA1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */; };
 		F81AF3EB1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */; };
+		F8B24CDB16645BB900684980 /* IVGEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B24CDA16645BB800684980 /* IVGEarthquake.m */; };
+		F8B24CDC16645BB900684980 /* IVGEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B24CDA16645BB800684980 /* IVGEarthquake.m */; };
 		F8FD8EFD165582870092FC61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFC165582870092FC61 /* UIKit.framework */; };
 		F8FD8EFF165582870092FC61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFE165582870092FC61 /* Foundation.framework */; };
 		F8FD8F01165582870092FC61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8F00165582870092FC61 /* CoreGraphics.framework */; };
@@ -32,6 +34,8 @@
 		F81AF3E51662C5C20050120B /* IVGEarthquakeAPISpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquakeAPISpecs.m; sourceTree = "<group>"; };
 		F81AF3E81662C5E10050120B /* IVGEarthquakeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGEarthquakeAPI.h; sourceTree = "<group>"; };
 		F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquakeAPI.m; sourceTree = "<group>"; };
+		F8B24CD916645BB800684980 /* IVGEarthquake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGEarthquake.h; sourceTree = "<group>"; };
+		F8B24CDA16645BB800684980 /* IVGEarthquake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquake.m; sourceTree = "<group>"; };
 		F8FD8EF8165582870092FC61 /* ShakeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FD8EFC165582870092FC61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F8FD8EFE165582870092FC61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -202,6 +206,8 @@
 		F8FD8F02165582870092FC61 /* ShakeUp */ = {
 			isa = PBXGroup;
 			children = (
+				F8B24CD916645BB800684980 /* IVGEarthquake.h */,
+				F8B24CDA16645BB800684980 /* IVGEarthquake.m */,
 				F81AF3E81662C5E10050120B /* IVGEarthquakeAPI.h */,
 				F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */,
 				F8FD8F0B165582870092FC61 /* IVGAppDelegate.h */,
@@ -456,6 +462,7 @@
 				F8FD8F0D165582870092FC61 /* IVGAppDelegate.m in Sources */,
 				F8FD8F16165582880092FC61 /* IVGViewController.m in Sources */,
 				F81AF3EA1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */,
+				F8B24CDB16645BB900684980 /* IVGEarthquake.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +472,7 @@
 			files = (
 				F81AF3E61662C5C20050120B /* IVGEarthquakeAPISpecs.m in Sources */,
 				F81AF3EB1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */,
+				F8B24CDC16645BB900684980 /* IVGEarthquake.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

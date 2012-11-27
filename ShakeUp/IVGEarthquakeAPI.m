@@ -7,12 +7,13 @@
 //
 
 #import "IVGEarthquakeAPI.h"
+#import "IVGEarthquake.h"
 
 @implementation IVGEarthquakeAPI
 
 - (NSArray *) retrieveCurrentData;
 {
-    return [NSArray array];
+    return [NSArray arrayWithObject:[[IVGEarthquake alloc] init]];
 }
 
 @end

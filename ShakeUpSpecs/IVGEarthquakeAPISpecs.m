@@ -8,6 +8,7 @@
 
 #import "Kiwi.h"
 #import "IVGEarthquakeAPI.h"
+#import "IVGEarthquake.h"
 
 @interface IVGEarthquakeAPI()
 - (NSDictionary *) columnPositionsFromHeaderRow:(NSArray *) headerRow;
@@ -25,6 +26,10 @@ describe(@"earthquakeAPI", ^{
     it(@"should retrieve data from server", ^{
         NSArray *currentData = [earthquakeAPI retrieveCurrentData];
         [currentData shouldNotBeNil];
+        [[currentData should] haveCountOfAtLeast:1];
+        for (id item in currentData) {
+            [[item should] beKindOfClass:[IVGEarthquake class]];
+        }
     });
 
 });
