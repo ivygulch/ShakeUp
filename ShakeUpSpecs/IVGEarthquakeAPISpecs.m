@@ -8,6 +8,7 @@
 
 #import "Kiwi.h"
 #import "IVGEarthquakeAPI.h"
+#import "IVGEarthquakeDataService.h"
 #import "IVGEarthquake.h"
 
 @interface IVGEarthquakeAPI()
@@ -18,12 +19,16 @@ SPEC_BEGIN(IVGEarthquakeAPISpecs)
 
 describe(@"earthquakeAPI", ^{
     __block IVGEarthquakeAPI *earthquakeAPI;
+    __block id earthquakeDataServiceMock = [IVGEarthquakeDataService mock];
 
     beforeEach(^{
-        earthquakeAPI = [[IVGEarthquakeAPI alloc] init];
+        earthquakeAPI = [[IVGEarthquakeAPI alloc] initWithDataService:earthquakeDataServiceMock];
     });
 
     it(@"should retrieve data from server", ^{
+        NSArray *mockEarthquakeDataDictionaries = [NSArray array];
+        [[earthquakeDataServiceMock should] receive:@selector(loadData) andReturn:mockEarthquakeDataDictionaries];
+
         NSArray *currentData = [earthquakeAPI retrieveCurrentData];
         [currentData shouldNotBeNil];
         [[currentData should] haveCountOfAtLeast:1];

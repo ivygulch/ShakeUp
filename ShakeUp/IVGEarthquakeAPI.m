@@ -9,7 +9,19 @@
 #import "IVGEarthquakeAPI.h"
 #import "IVGEarthquake.h"
 
+@interface IVGEarthquakeAPI()
+@property (nonatomic,strong) IVGEarthquakeDataService *earthquakeDataService;
+@end
+
 @implementation IVGEarthquakeAPI
+
+- (id) initWithDataService:(IVGEarthquakeDataService *) earthquakeDataService;
+{
+    if ((self = [super init])) {
+        _earthquakeDataService = earthquakeDataService;
+    }
+    return self;
+}
 
 - (NSArray *) retrieveCurrentData;
 {
