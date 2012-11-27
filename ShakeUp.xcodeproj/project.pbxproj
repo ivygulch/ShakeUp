@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F81AF3E61662C5C20050120B /* IVGEarthquakeAPISpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E51662C5C20050120B /* IVGEarthquakeAPISpecs.m */; };
+		F81AF3EA1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */; };
+		F81AF3EB1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */; };
 		F8FD8EFD165582870092FC61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFC165582870092FC61 /* UIKit.framework */; };
 		F8FD8EFF165582870092FC61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFE165582870092FC61 /* Foundation.framework */; };
 		F8FD8F01165582870092FC61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8F00165582870092FC61 /* CoreGraphics.framework */; };
@@ -22,11 +25,13 @@
 		F8FD8F42165583860092FC61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFC165582870092FC61 /* UIKit.framework */; };
 		F8FD8F43165583860092FC61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFE165582870092FC61 /* Foundation.framework */; };
 		F8FD8F49165583860092FC61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8FD8F47165583860092FC61 /* InfoPlist.strings */; };
-		F8FD8F4C165583860092FC61 /* ShakeUpSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FD8F4B165583860092FC61 /* ShakeUpSpecs.m */; };
 		F8FD8F53165583A50092FC61 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8F52165583A50092FC61 /* libKiwi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F81AF3E51662C5C20050120B /* IVGEarthquakeAPISpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquakeAPISpecs.m; sourceTree = "<group>"; };
+		F81AF3E81662C5E10050120B /* IVGEarthquakeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGEarthquakeAPI.h; sourceTree = "<group>"; };
+		F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquakeAPI.m; sourceTree = "<group>"; };
 		F8FD8EF8165582870092FC61 /* ShakeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FD8EFC165582870092FC61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F8FD8EFE165582870092FC61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,8 +52,6 @@
 		F8FD8F40165583860092FC61 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F8FD8F46165583860092FC61 /* ShakeUpSpecs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShakeUpSpecs-Info.plist"; sourceTree = "<group>"; };
 		F8FD8F48165583860092FC61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F8FD8F4A165583860092FC61 /* ShakeUpSpecs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShakeUpSpecs.h; sourceTree = "<group>"; };
-		F8FD8F4B165583860092FC61 /* ShakeUpSpecs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeUpSpecs.m; sourceTree = "<group>"; };
 		F8FD8F4D165583860092FC61 /* ShakeUpSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShakeUpSpecs-Prefix.pch"; sourceTree = "<group>"; };
 		F8FD8F52165583A50092FC61 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKiwi.a; sourceTree = "<group>"; };
 		F8FD8F55165584150092FC61 /* Kiwi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kiwi.h; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 		F8FD8F02165582870092FC61 /* ShakeUp */ = {
 			isa = PBXGroup;
 			children = (
+				F81AF3E81662C5E10050120B /* IVGEarthquakeAPI.h */,
+				F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */,
 				F8FD8F0B165582870092FC61 /* IVGAppDelegate.h */,
 				F8FD8F0C165582870092FC61 /* IVGAppDelegate.m */,
 				F8FD8F14165582880092FC61 /* IVGViewController.h */,
@@ -226,8 +231,7 @@
 		F8FD8F44165583860092FC61 /* ShakeUpSpecs */ = {
 			isa = PBXGroup;
 			children = (
-				F8FD8F4A165583860092FC61 /* ShakeUpSpecs.h */,
-				F8FD8F4B165583860092FC61 /* ShakeUpSpecs.m */,
+				F81AF3E51662C5C20050120B /* IVGEarthquakeAPISpecs.m */,
 				F8FD8F45165583860092FC61 /* Supporting Files */,
 			);
 			path = ShakeUpSpecs;
@@ -451,6 +455,7 @@
 				F8FD8F09165582870092FC61 /* main.m in Sources */,
 				F8FD8F0D165582870092FC61 /* IVGAppDelegate.m in Sources */,
 				F8FD8F16165582880092FC61 /* IVGViewController.m in Sources */,
+				F81AF3EA1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +463,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8FD8F4C165583860092FC61 /* ShakeUpSpecs.m in Sources */,
+				F81AF3E61662C5C20050120B /* IVGEarthquakeAPISpecs.m in Sources */,
+				F81AF3EB1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +646,7 @@
 				F8FD8F4F165583860092FC61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
