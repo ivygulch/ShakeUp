@@ -27,12 +27,6 @@ describe(@"earthquakeAPI", ^{
         [currentData shouldNotBeNil];
     });
 
-    it(@"random failure to demonstrate how runtime error looks", ^{
-        id value = [NSDate date];
-        NSString *lcValue = [value lowercaseString];
-        [lcValue shouldNotBeNil];
-    });
-
 });
 
 SPEC_END
