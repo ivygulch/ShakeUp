@@ -87,14 +87,14 @@ describe(@"earthquakeAPI", ^{
 
     context(@"public", ^{
 
-        it(@"should retrieve data from server", ^{
-            NSArray *mockEarthquakeDataDictionaries = [NSArray array];
+        it(@"should retrieve data from data service", ^{
+            NSArray *mockEarthquakeDataDictionaries = [NSArray arrayWithObjects:testEarthquakeDict, testEarthquakeDict, nil];
             [[earthquakeDataServiceMock should] receive:@selector(loadData)
                                               andReturn:mockEarthquakeDataDictionaries];
 
             NSArray *currentData = [earthquakeAPI retrieveCurrentData];
             [currentData shouldNotBeNil];
-            [[currentData should] haveCountOfAtLeast:1];
+            [[currentData should] have:[mockEarthquakeDataDictionaries count]];
             for (id item in currentData) {
                 [[item should] beKindOfClass:[IVGEarthquake class]];
             }
