@@ -88,8 +88,7 @@ describe(@"earthquakeAPI", ^{
     context(@"public", ^{
 
         it(@"should retrieve data from server", ^{
-            NSDictionary *mockDict = @{@"Src":@"source",@"Eqid":@1234};
-            NSArray *mockEarthquakeDataDictionaries = [NSArray arrayWithObject:mockDict];
+            NSArray *mockEarthquakeDataDictionaries = [NSArray array];
             [[earthquakeDataServiceMock should] receive:@selector(loadData)
                                               andReturn:mockEarthquakeDataDictionaries];
 
