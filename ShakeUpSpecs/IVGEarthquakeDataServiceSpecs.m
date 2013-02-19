@@ -13,7 +13,7 @@
 SPEC_BEGIN(IVGEarthquakeDataServiceSpecs)
 
 describe(@"earthquakeDataService", ^{
-    __block id httpClientMock = [AFHTTPClient mock];
+    __block id httpClientMock = [AFHTTPClient nullMock];
     __block IVGEarthquakeDataService *earthquakeDataService;
 
     beforeEach(^{
@@ -23,9 +23,14 @@ describe(@"earthquakeDataService", ^{
     context(@"loadData", ^{
 
         it(@"should call 7day URI", ^{
-            [[httpClientMock should] receive:@selector(test)];
+            [[httpClientMock should] receive:@selector(requestWithMethod:path:parameters:)];
+            [[httpClientMock should] receive:@selector(HTTPRequestOperationWithRequest:success:failure:)];
+            KWCaptureSpy *spy = [httpClientMock captureArgument:@selector(enqueueHTTPRequestOperation:) atIndex:0];
+            [[httpClientMock should] receive:@selector(enqueueHTTPRequestOperation:)];
 
             [earthquakeDataService loadData:nil];
+
+            NSLog(@"arg: %@", spy.argument);
         });
         
     });
