@@ -35,6 +35,8 @@
 		F8D7DCD716D41897005709D6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D7DCD616D41897005709D6 /* SystemConfiguration.framework */; };
 		F8D7DCD816D4189E005709D6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D7DCD416D4187F005709D6 /* MobileCoreServices.framework */; };
 		F8D7DCD916D418A1005709D6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D7DCD616D41897005709D6 /* SystemConfiguration.framework */; };
+		F8D7DCDC16D41A2A005709D6 /* IVGUSGSAPIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCDB16D41A2A005709D6 /* IVGUSGSAPIConstants.m */; };
+		F8D7DCDD16D41A2A005709D6 /* IVGUSGSAPIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCDB16D41A2A005709D6 /* IVGUSGSAPIConstants.m */; };
 		F8DE929F166550BB000840C7 /* IVGEarthquakeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */; };
 		F8DE92A0166550BB000840C7 /* IVGEarthquakeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */; };
 		F8FD8EFD165582870092FC61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFC165582870092FC61 /* UIKit.framework */; };
@@ -83,6 +85,8 @@
 		F8D7DCC116D41683005709D6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		F8D7DCD416D4187F005709D6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F8D7DCD616D41897005709D6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F8D7DCDA16D41A2A005709D6 /* IVGUSGSAPIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGUSGSAPIConstants.h; sourceTree = "<group>"; };
+		F8D7DCDB16D41A2A005709D6 /* IVGUSGSAPIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGUSGSAPIConstants.m; sourceTree = "<group>"; };
 		F8DE929D166550BB000840C7 /* IVGEarthquakeDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGEarthquakeDataService.h; sourceTree = "<group>"; };
 		F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquakeDataService.m; sourceTree = "<group>"; };
 		F8FD8EF8165582870092FC61 /* ShakeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +306,8 @@
 				F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */,
 				F8DE929D166550BB000840C7 /* IVGEarthquakeDataService.h */,
 				F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */,
+				F8D7DCDA16D41A2A005709D6 /* IVGUSGSAPIConstants.h */,
+				F8D7DCDB16D41A2A005709D6 /* IVGUSGSAPIConstants.m */,
 				F8FD8F0B165582870092FC61 /* IVGAppDelegate.h */,
 				F8FD8F0C165582870092FC61 /* IVGAppDelegate.m */,
 				F8FD8F14165582880092FC61 /* IVGViewController.h */,
@@ -566,6 +572,7 @@
 				F8D7DCCE16D41683005709D6 /* AFURLConnectionOperation.m in Sources */,
 				F8D7DCD016D41683005709D6 /* AFXMLRequestOperation.m in Sources */,
 				F8D7DCD216D41683005709D6 /* UIImageView+AFNetworking.m in Sources */,
+				F8D7DCDC16D41A2A005709D6 /* IVGUSGSAPIConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +594,7 @@
 				F8D7DCCF16D41683005709D6 /* AFURLConnectionOperation.m in Sources */,
 				F8D7DCD116D41683005709D6 /* AFXMLRequestOperation.m in Sources */,
 				F8D7DCD316D41683005709D6 /* UIImageView+AFNetworking.m in Sources */,
+				F8D7DCDD16D41A2A005709D6 /* IVGUSGSAPIConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

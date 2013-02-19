@@ -13,6 +13,8 @@ typedef void(^IVGEDSLoadDataBlock)(NSArray *data);
 
 @interface IVGEarthquakeDataService : NSObject
 
+- (id) initWithHTTPClient:(AFHTTPClient *) httpClient;
+
 /// @return array of dictionaries created from loading CSV data from USGS web service
 - (void) loadData:(IVGEDSLoadDataBlock) loadDataBlock;
 

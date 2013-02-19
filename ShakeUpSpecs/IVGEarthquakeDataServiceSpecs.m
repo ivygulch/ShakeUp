@@ -13,15 +13,19 @@
 SPEC_BEGIN(IVGEarthquakeDataServiceSpecs)
 
 describe(@"earthquakeDataService", ^{
+    __block id httpClientMock = [AFHTTPClient mock];
+    __block IVGEarthquakeDataService *earthquakeDataService;
 
-    context(@"dummy spec", ^{
+    beforeEach(^{
+        earthquakeDataService = [[IVGEarthquakeDataService alloc] initWithHTTPClient:httpClientMock];
+    });
 
-        it(@"make sure classes are included in appropriate target before we continue", ^{
-            AFHTTPClient *dummyClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://example.com"]];
-            [dummyClient shouldNotBeNil];
+    context(@"loadData", ^{
 
-            IVGEarthquakeDataService *dummyDS = [[IVGEarthquakeDataService alloc] init];
-            [dummyDS shouldNotBeNil];
+        it(@"should call 7day URI", ^{
+            [[httpClientMock should] receive:@selector(test)];
+
+            [earthquakeDataService loadData:nil];
         });
         
     });
