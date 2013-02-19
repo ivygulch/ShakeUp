@@ -19,9 +19,6 @@
 SPEC_BEGIN(IVGEarthquakeAPISpecs)
 
 describe(@"earthquakeAPI", ^{
-    __block IVGEarthquakeAPI *earthquakeAPI;
-    __block id earthquakeDataServiceMock = [IVGEarthquakeDataService mock];
-
     __block NSString *testDatetimeStr = @"Tuesday, November 27, 2012 20:05:54 UTC";
     NSDateComponents *testDC = [[NSDateComponents alloc] init];
     testDC.month = 11;
@@ -56,12 +53,13 @@ describe(@"earthquakeAPI", ^{
     @"Region":testRegion
     };
 
-    beforeEach(^{
-        earthquakeAPI = [[IVGEarthquakeAPI alloc] initWithDataService:earthquakeDataServiceMock];
-    });
-
     context(@"private", ^{
-
+        __block IVGEarthquakeAPI *earthquakeAPI;
+        beforeEach(^{
+            // private methods do not need the service
+            earthquakeAPI = [[IVGEarthquakeAPI alloc] initWithDataService:nil];
+        });
+        
         it(@"should parse datetime", ^{
             NSDate *datetime = [earthquakeAPI parseDatetimeString:testDatetimeStr];
             [datetime shouldNotBeNil];
@@ -88,16 +86,27 @@ describe(@"earthquakeAPI", ^{
     context(@"earthquakeAPI", ^{
 
         it(@"should request data from data service", ^{
-            NSArray *mockEarthquakeDataDictionaries = [NSArray arrayWithObjects:testEarthquakeDict, testEarthquakeDict, nil];
+            NSArray *mockEarthquakeDataDictionaries = @[testEarthquakeDict];
+
+            id earthquakeDataServiceMock = [IVGEarthquakeDataService nullMock];
+            KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
+
             [[earthquakeDataServiceMock should] receive:@selector(loadData:)];
 
-            [earthquakeAPI retrieveCurrentData:^(NSArray *currentData) {
-                [currentData shouldNotBeNil];
-                [[currentData should] have:[mockEarthquakeDataDictionaries count]];
-                for (id item in currentData) {
-                    [[item should] beKindOfClass:[IVGEarthquake class]];
-                }
+            IVGEarthquakeAPI *earthquakeAPI = [[IVGEarthquakeAPI alloc] initWithDataService:earthquakeDataServiceMock];
+            __block NSArray *currentData = nil;
+            [earthquakeAPI retrieveCurrentData:^(NSArray *data) {
+                currentData = data;
             }];
+
+            IVGEDSLoadDataBlock actualLoadedDataBlock = spy.argument;
+            actualLoadedDataBlock(mockEarthquakeDataDictionaries);
+
+            [currentData shouldNotBeNil];
+            [[currentData should] have:[mockEarthquakeDataDictionaries count]];
+            for (id item in currentData) {
+                [[item should] beKindOfClass:[IVGEarthquake class]];
+            }
         });
         
     });
