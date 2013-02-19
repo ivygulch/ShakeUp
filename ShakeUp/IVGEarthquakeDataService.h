@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^IVGEDSLoadDataBlock)(NSArray *data);
+
 @interface IVGEarthquakeDataService : NSObject
 
 /// @return array of dictionaries created from loading CSV data from USGS web service
-- (NSArray *) loadData;
+- (void) loadData:(IVGEDSLoadDataBlock) loadDataBlock;
 
 @end

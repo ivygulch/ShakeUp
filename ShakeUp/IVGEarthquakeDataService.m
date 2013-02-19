@@ -10,9 +10,8 @@
 
 @implementation IVGEarthquakeDataService
 
-- (NSArray *) loadData;
+- (void) loadData:(IVGEDSLoadDataBlock) loadDataBlock;
 {
-    return nil;
 }
 
 @end
