@@ -45,14 +45,14 @@ describe(@"earthquakeAPI", ^{
 
     __block NSDictionary *testEarthquakeDict = @{
     @"Src":testSource,
-    @"Eqid":[NSNumber numberWithInteger:testEarthquakeId],
-    @"Version":[NSNumber numberWithInteger:testVersion],
+    @"Eqid":@(testEarthquakeId),
+    @"Version":@(testVersion),
     @"Datetime":testDatetimeStr,
-    @"Lat":[NSNumber numberWithDouble:testLatitude],
-    @"Lon":[NSNumber numberWithDouble:testLongitude],
-    @"Magnitude":[NSNumber numberWithDouble:testMagnitude],
-    @"Depth":[NSNumber numberWithDouble:testDepth],
-    @"NST":[NSNumber numberWithInteger:testNST],
+    @"Lat":@(testLatitude),
+    @"Lon":@(testLongitude),
+    @"Magnitude":@(testMagnitude),
+    @"Depth":@(testDepth),
+    @"NST":@(testNST),
     @"Region":testRegion
     };
 
