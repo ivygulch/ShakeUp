@@ -50,14 +50,14 @@
     return earthquake;
 }
 
-- (NSArray *) retrieveCurrentData;
+- (void) retrieveCurrentData:(IVGRetrieveDataBlock) retrieveDataBlock;
 {
     NSArray *dictItems = [self.earthquakeDataService loadData];
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[dictItems count]];
     for (NSDictionary *dict in dictItems) {
         [result addObject:[self createEarthquakeFromDictionary:dict]];
     }
-    return result;
+    retrieveDataBlock(result);
 }
 
 @end

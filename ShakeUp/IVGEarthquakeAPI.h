@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "IVGEarthquakeDataService.h"
 
+typedef void(^IVGRetrieveDataBlock)(NSArray *data);
+
 @interface IVGEarthquakeAPI : NSObject
 
 - (id) initWithDataService:(IVGEarthquakeDataService *) earthquakeDataService;
 
-- (NSArray *) retrieveCurrentData;
+- (void) retrieveCurrentData:(IVGRetrieveDataBlock) retrieveDataBlock;
 
 @end
