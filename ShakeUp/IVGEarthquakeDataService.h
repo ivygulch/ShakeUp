@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
 
 typedef void(^IVGEDSLoadDataBlock)(NSArray *data);
 
