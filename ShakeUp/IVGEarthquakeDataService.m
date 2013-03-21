@@ -25,7 +25,7 @@
 
 - (void) loadData:(IVGEDSLoadDataBlock) loadDataBlock;
 {
-    NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"GET" path:@"wrongpath" parameters:nil];
+    NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"GET" path:kIVGUSGSEarthquake7DayM1URI parameters:nil];
 
     AFHTTPRequestOperation *operation = [self.httpClient
                                          HTTPRequestOperationWithRequest:request
