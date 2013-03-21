@@ -7,12 +7,33 @@
 //
 
 #import "IVGEarthquakeDataService.h"
+#import "IVGUSGSAPIConstants.h"
+
+@interface IVGEarthquakeDataService()
+@property (nonatomic,strong) AFHTTPClient *httpClient;
+@end
 
 @implementation IVGEarthquakeDataService
 
-- (NSArray *) loadData;
+- (id) initWithHTTPClient:(AFHTTPClient *) httpClient;
 {
-    return nil;
+    if ((self = [super init])) {
+        _httpClient = httpClient;
+    }
+    return self;
+}
+
+- (void) loadData:(IVGEDSLoadDataBlock) loadDataBlock;
+{
+    NSMutableURLRequest *request = [self.httpClient requestWithMethod:@"GET" path:@"wrongpath" parameters:nil];
+
+    AFHTTPRequestOperation *operation = [self.httpClient
+                                         HTTPRequestOperationWithRequest:request
+                                         success:nil
+                                         failure:nil];
+
+    [self.httpClient enqueueHTTPRequestOperation:operation];
+
 }
 
 @end

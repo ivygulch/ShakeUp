@@ -22,38 +22,43 @@
     if ((self = [super init])) {
         _earthquakeDataService = earthquakeDataService;
         _dateFormatter = [[NSDateFormatter alloc] init];
-        // parse "Tuesday, November 27, 2012 15:40:56 UTC"
-        _dateFormatter.dateFormat = @"ddd, MMM dd, yyyy HH:mm:ss Z";
+        // Tuesday, November 27, 2012 20:05:54 UTC
+        _dateFormatter.dateFormat = @"EEEE, MMMM dd, yyyy HH:mm:ss z";
     }
     return self;
 }
 
-- (IVGEarthquake *) createEarthquakeWithDictionary:(NSDictionary *) dict;
+- (NSDate *) parseDatetimeString:(NSString *) value;
+{
+    return [self.dateFormatter dateFromString:value];
+}
+
+- (IVGEarthquake *) createEarthquakeFromDictionary:(NSDictionary *) dict;
 {
     IVGEarthquake *earthquake = [[IVGEarthquake alloc] init];
+    //Src,Eqid,Version,Datetime,Lat,Lon,Magnitude,Depth,NST,Region
+    earthquake.source = [dict objectForKey:@"Src"];
     earthquake.earthquakeId = [[dict objectForKey:@"Eqid"] longValue];
     earthquake.version = [[dict objectForKey:@"Version"] integerValue];
-    earthquake.source = [dict objectForKey:@"Src"];
-    earthquake.datetime = [self.dateFormatter dateFromString:[dict objectForKey:@"Datetime"]];
+    earthquake.datetime = [self parseDatetimeString:[dict objectForKey:@"Datetime"]];
     earthquake.latitude = [[dict objectForKey:@"Lat"] doubleValue];
     earthquake.longitude = [[dict objectForKey:@"Lon"] doubleValue];
     earthquake.magnitude = [[dict objectForKey:@"Magnitude"] doubleValue];
     earthquake.depth = [[dict objectForKey:@"Depth"] doubleValue];
     earthquake.nst = [[dict objectForKey:@"NST"] integerValue];
     earthquake.region = [dict objectForKey:@"Region"];
-
     return earthquake;
 }
 
-- (NSArray *) retrieveCurrentData;
+- (void) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock;
 {
-    NSArray *dictionaryEntries = [self.earthquakeDataService loadData];
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:[dictionaryEntries count]];
-    for (NSDictionary *dict in dictionaryEntries) {
-        IVGEarthquake *earthquake = [self createEarthquakeWithDictionary:dict];
-        [result addObject:earthquake];
-    }
-    return result;
+    [self.earthquakeDataService loadData:^(NSArray *dictItems) {
+        NSMutableArray *result = [NSMutableArray arrayWithCapacity:[dictItems count]];
+        for (NSDictionary *dict in dictItems) {
+            [result addObject:[self createEarthquakeFromDictionary:dict]];
+        }
+        retrieveDataBlock(result);
+    }];
 }
 
 @end

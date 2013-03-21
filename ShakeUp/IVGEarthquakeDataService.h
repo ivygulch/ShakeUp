@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
+
+typedef void(^IVGEDSLoadDataBlock)(NSArray *data);
 
 @interface IVGEarthquakeDataService : NSObject
 
+- (id) initWithHTTPClient:(AFHTTPClient *) httpClient;
+
 /// @return array of dictionaries created from loading CSV data from USGS web service
-- (NSArray *) loadData;
+- (void) loadData:(IVGEDSLoadDataBlock) loadDataBlock;
 
 @end

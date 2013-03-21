@@ -10,9 +10,9 @@
 
 @interface IVGEarthquake : NSObject
 
+@property (nonatomic,strong) NSString *source;
 @property (nonatomic,assign) NSInteger earthquakeId;
 @property (nonatomic,assign) NSInteger version;
-@property (nonatomic,strong) NSString *source;
 @property (nonatomic,strong) NSDate *datetime;
 @property (nonatomic,assign) double latitude;
 @property (nonatomic,assign) double longitude;
