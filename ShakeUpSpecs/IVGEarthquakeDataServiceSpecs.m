@@ -9,6 +9,7 @@
 #import "Kiwi.h"
 #import "AFNetworking.h"
 #import "IVGEarthquakeDataService.h"
+#import "IVGUSGSAPIConstants.h"
 
 SPEC_BEGIN(IVGEarthquakeDataServiceSpecs)
 
@@ -25,12 +26,13 @@ describe(@"earthquakeDataService", ^{
         it(@"should call 7day URI", ^{
             [[httpClientMock should] receive:@selector(requestWithMethod:path:parameters:)];
             [[httpClientMock should] receive:@selector(HTTPRequestOperationWithRequest:success:failure:)];
-            KWCaptureSpy *spy = [httpClientMock captureArgument:@selector(enqueueHTTPRequestOperation:) atIndex:0];
             [[httpClientMock should] receive:@selector(enqueueHTTPRequestOperation:)];
+
+            KWCaptureSpy *spy = [httpClientMock captureArgument:@selector(requestWithMethod:path:parameters:) atIndex:1];
 
             [earthquakeDataService loadData:nil];
 
-            NSLog(@"arg: %@", spy.argument);
+            [[spy.argument should] equal:kIVGUSGSEarthquake7DayM1URI];
         });
         
     });
