@@ -108,10 +108,6 @@ describe(@"earthquakeAPI", ^{
                 [[item should] beKindOfClass:[IVGEarthquake class]];
             }
         });
-<<<<<<< HEAD
-=======
-        
->>>>>>> t015
     });
     
 });
