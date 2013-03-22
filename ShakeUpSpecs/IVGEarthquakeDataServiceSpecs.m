@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "IVGEarthquakeDataService.h"
 #import "IVGUSGSAPIConstants.h"
+#import "IVGEarthquake.h"
 
 @interface IVGEarthquakeDataService()
 - (AFNetworkingSuccessBlock) buildSuccessBlockWithLoadDataBlock:(IVGEDSLoadDataBlock) loadDataBlock;
@@ -56,7 +57,20 @@ describe(@"earthquakeDataService", ^{
             };
             successBlock = [earthquakeDataService buildSuccessBlockWithLoadDataBlock:dummyLoadDataBlock];
             successBlock(nil,nil);
-            [[@(loadDataBlockCalled) shouldEventually] equal:@(YES)];
+            [[@(loadDataBlockCalled) should] equal:@(YES)];
+        });
+
+        it(@"should create array of earthquake instances built from network request results", ^{
+            __block NSArray *loadedData = nil;
+            IVGEDSLoadDataBlock dummyLoadDataBlock = ^(NSArray *data) {
+                loadedData = data;
+            };
+            successBlock = [earthquakeDataService buildSuccessBlockWithLoadDataBlock:dummyLoadDataBlock];
+            successBlock(nil,nil);
+            [[loadedData should] haveCountOf:2];
+            for (id item in loadedData) {
+                [[item should] beKindOfClass:[IVGEarthquake class]];
+            }
         });
     });
     
