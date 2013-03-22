@@ -138,10 +138,15 @@ describe(@"earthquakeAPI", ^{
             });
 
             it(@"with no filter, should return all data", ^{
+                KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
+
                 __block NSArray *currentData = nil;
                 [earthquakeAPI retrieveCurrentData:^(NSArray *data) {
                     currentData = data;
                 } withFilterCriteria:nil];
+
+                IVGEDSLoadDataBlock loadBlock = spy.argument;
+                loadBlock(exampleData);
 
                 [currentData shouldNotBeNil];
                 [[currentData should] have:[exampleData count]];
