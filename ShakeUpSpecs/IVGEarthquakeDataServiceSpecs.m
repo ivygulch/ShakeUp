@@ -60,7 +60,7 @@ describe(@"earthquakeDataService", ^{
             [[@(loadDataBlockCalled) should] equal:@(YES)];
         });
 
-        pending(@"should create array of earthquake instances built from network request results", ^{
+        it(@"should create array of dictionaries with earthquake data built from network request results", ^{
             __block NSArray *loadedData = nil;
             IVGEDSLoadDataBlock dummyLoadDataBlock = ^(NSArray *data) {
                 loadedData = data;
