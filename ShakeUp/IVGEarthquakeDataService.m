@@ -8,6 +8,7 @@
 
 #import "IVGEarthquakeDataService.h"
 #import "IVGUSGSAPIConstants.h"
+#import "NSString+IVGCSVParser.h"
 
 @interface IVGEarthquakeDataService()
 @property (nonatomic,strong) AFHTTPClient *httpClient;
@@ -39,8 +40,10 @@
 - (AFNetworkingSuccessBlock) buildSuccessBlockWithLoadDataBlock:(IVGEDSLoadDataBlock) loadDataBlock;
 {
     return ^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *csvString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSArray *dictionaries = [csvString dictionariesFromCSVComponents];
         if (loadDataBlock != nil) {
-            loadDataBlock(nil);
+            loadDataBlock(dictionaries);
         }
     };
 }

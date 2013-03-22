@@ -65,8 +65,14 @@ describe(@"earthquakeDataService", ^{
             IVGEDSLoadDataBlock dummyLoadDataBlock = ^(NSArray *data) {
                 loadedData = data;
             };
+            NSString *exampleUSGSDataString = @""\
+            "Src,Eqid,Version,Datetime,Lat,Lon,Magnitude,Depth,NST,Region" \
+            "\nak,10679205,1,\"Friday, March 22, 2013 04:48:46 UTC\",60.4056,-150.9621,2.2,47.80, 7,\"Kenai Peninsula, Alaska\"" \
+            "\nnc,71958305,0,\"Friday, March 22, 2013 04:24:39 UTC\",35.5412,-120.7735,1.2,5.10,10,\"Central California\"";
+            NSData *exampleUSGSData = [exampleUSGSDataString dataUsingEncoding:NSUTF8StringEncoding];
+
             successBlock = [earthquakeDataService buildSuccessBlockWithLoadDataBlock:dummyLoadDataBlock];
-            successBlock(nil,nil);
+            successBlock(nil,exampleUSGSData);
             [[loadedData should] haveCountOf:2];
             for (id item in loadedData) {
                 [[item should] beKindOfClass:[NSDictionary class]];
