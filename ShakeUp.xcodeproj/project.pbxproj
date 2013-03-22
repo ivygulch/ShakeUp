@@ -13,6 +13,9 @@
 		F8389FB016FC3506008A9634 /* NSString+IVGCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FAF16FC3506008A9634 /* NSString+IVGCSVParser.m */; };
 		F8389FB116FC3506008A9634 /* NSString+IVGCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FAF16FC3506008A9634 /* NSString+IVGCSVParser.m */; };
 		F8389FB316FC3566008A9634 /* NSStringIVGCSVParserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FB216FC3566008A9634 /* NSStringIVGCSVParserSpec.m */; };
+		F8389FB616FC7A1F008A9634 /* IVGFilterCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FB516FC7A1F008A9634 /* IVGFilterCriteria.m */; };
+		F8389FB716FC7A1F008A9634 /* IVGFilterCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FB516FC7A1F008A9634 /* IVGFilterCriteria.m */; };
+		F8389FBB16FC813B008A9634 /* IVGFilterCriteriaSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FBA16FC813B008A9634 /* IVGFilterCriteriaSpec.m */; };
 		F8B24CDB16645BB900684980 /* IVGEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B24CDA16645BB800684980 /* IVGEarthquake.m */; };
 		F8B24CDC16645BB900684980 /* IVGEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B24CDA16645BB800684980 /* IVGEarthquake.m */; };
 		F8D7DC9016D41540005709D6 /* IVGEarthquakeDataServiceSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DC8F16D41540005709D6 /* IVGEarthquakeDataServiceSpecs.m */; };
@@ -69,6 +72,9 @@
 		F8389FAE16FC3506008A9634 /* NSString+IVGCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IVGCSVParser.h"; sourceTree = "<group>"; };
 		F8389FAF16FC3506008A9634 /* NSString+IVGCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IVGCSVParser.m"; sourceTree = "<group>"; };
 		F8389FB216FC3566008A9634 /* NSStringIVGCSVParserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringIVGCSVParserSpec.m; sourceTree = "<group>"; };
+		F8389FB416FC7A1F008A9634 /* IVGFilterCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGFilterCriteria.h; sourceTree = "<group>"; };
+		F8389FB516FC7A1F008A9634 /* IVGFilterCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGFilterCriteria.m; sourceTree = "<group>"; };
+		F8389FBA16FC813B008A9634 /* IVGFilterCriteriaSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGFilterCriteriaSpec.m; sourceTree = "<group>"; };
 		F8B24CD916645BB800684980 /* IVGEarthquake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGEarthquake.h; sourceTree = "<group>"; };
 		F8B24CDA16645BB800684980 /* IVGEarthquake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquake.m; sourceTree = "<group>"; };
 		F8D7DC8F16D41540005709D6 /* IVGEarthquakeDataServiceSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquakeDataServiceSpecs.m; sourceTree = "<group>"; };
@@ -324,6 +330,8 @@
 				F8B24CDA16645BB800684980 /* IVGEarthquake.m */,
 				F81AF3E81662C5E10050120B /* IVGEarthquakeAPI.h */,
 				F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */,
+				F8389FB416FC7A1F008A9634 /* IVGFilterCriteria.h */,
+				F8389FB516FC7A1F008A9634 /* IVGFilterCriteria.m */,
 				F8DE929D166550BB000840C7 /* IVGEarthquakeDataService.h */,
 				F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */,
 				F8D7DCDA16D41A2A005709D6 /* IVGUSGSAPIConstants.h */,
@@ -360,6 +368,7 @@
 				F81AF3E51662C5C20050120B /* IVGEarthquakeAPISpecs.m */,
 				F8D7DC8F16D41540005709D6 /* IVGEarthquakeDataServiceSpecs.m */,
 				F8389FB216FC3566008A9634 /* NSStringIVGCSVParserSpec.m */,
+				F8389FBA16FC813B008A9634 /* IVGFilterCriteriaSpec.m */,
 				F8FD8F45165583860092FC61 /* Supporting Files */,
 			);
 			path = ShakeUpSpecs;
@@ -598,6 +607,7 @@
 				F8D7DCDC16D41A2A005709D6 /* IVGUSGSAPIConstants.m in Sources */,
 				F8FBE76616FC24580090175F /* CHCSVParser.m in Sources */,
 				F8389FB016FC3506008A9634 /* NSString+IVGCSVParser.m in Sources */,
+				F8389FB616FC7A1F008A9634 /* IVGFilterCriteria.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +633,8 @@
 				F8FBE76716FC24580090175F /* CHCSVParser.m in Sources */,
 				F8389FB116FC3506008A9634 /* NSString+IVGCSVParser.m in Sources */,
 				F8389FB316FC3566008A9634 /* NSStringIVGCSVParserSpec.m in Sources */,
+				F8389FB716FC7A1F008A9634 /* IVGFilterCriteria.m in Sources */,
+				F8389FBB16FC813B008A9634 /* IVGFilterCriteriaSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
