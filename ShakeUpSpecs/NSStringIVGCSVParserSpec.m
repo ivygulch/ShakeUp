@@ -59,9 +59,35 @@ describe(@"parser category", ^{
             [[dictionary2 should] haveValue:@"row2ColB" forKey:@"colB"];
             [[dictionary2 should] haveValue:@"row2ColC" forKey:@"colC"];
         });
-
+        
     });
+    
+    context(@"string with headers and mismatched data", ^{
+        NSString *csv = @"colA,colB,colC" \
+        "\nrow1ColA,row1ColB" \
+        "\nrow2ColA,row2ColB,row2ColC,row2ColD";
 
+        it(@"should produce array of dictionaries with just the key/values specified in the header", ^{
+            NSArray *dictionaries = [csv dictionariesFromCSVComponents];
+            [dictionaries shouldNotBeNil];
+            [[dictionaries should] haveCountOf:2];
+
+            NSDictionary *dictionary1 = [dictionaries objectAtIndex:0];
+            [[[dictionary1 should] have:2] allKeys];
+            [[[dictionary1 allKeys] should] containObjectsInArray:@[@"colA",@"colB"]];
+            [[dictionary1 should] haveValue:@"row1ColA" forKey:@"colA"];
+            [[dictionary1 should] haveValue:@"row1ColB" forKey:@"colB"];
+
+            NSDictionary *dictionary2 = [dictionaries objectAtIndex:1];
+            [[[dictionary2 should] have:3] allKeys];
+            [[[dictionary2 allKeys] should] containObjectsInArray:@[@"colA",@"colB",@"colC"]];
+            [[dictionary2 should] haveValue:@"row2ColA" forKey:@"colA"];
+            [[dictionary2 should] haveValue:@"row2ColB" forKey:@"colB"];
+            [[dictionary2 should] haveValue:@"row2ColC" forKey:@"colC"];
+        });
+        
+    });
+    
 });
 
 SPEC_END
