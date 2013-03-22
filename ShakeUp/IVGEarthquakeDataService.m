@@ -38,7 +38,9 @@
 
 - (AFNetworkingSuccessBlock) buildSuccessBlockWithLoadDataBlock:(IVGEDSLoadDataBlock) loadDataBlock;
 {
-    return nil;
+    return ^(AFHTTPRequestOperation *operation, id responseObject) {
+
+    };
 }
 
 @end
