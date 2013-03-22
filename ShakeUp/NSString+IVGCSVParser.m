@@ -12,7 +12,7 @@
 
 - (NSArray *) dictionariesFromCSVComponents;
 {
-    return nil;
+    return [NSArray array];
 }
 
 @end
