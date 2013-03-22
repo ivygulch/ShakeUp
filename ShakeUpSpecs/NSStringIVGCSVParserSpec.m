@@ -21,9 +21,20 @@ describe(@"parser category", ^{
             [dictionaries shouldNotBeNil];
             [[dictionaries should] haveCountOf:0];
         });
-        
-    });
 
+    });
+    
+    context(@"string with just headers", ^{
+        NSString *csv = @"colA,colB,colC";
+
+        it(@"should produce empty array", ^{
+            NSArray *dictionaries = [csv dictionariesFromCSVComponents];
+            [dictionaries shouldNotBeNil];
+            [[dictionaries should] haveCountOf:0];
+        });
+
+    });
+    
 });
 
 SPEC_END
