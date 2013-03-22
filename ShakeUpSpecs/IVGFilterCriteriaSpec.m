@@ -8,6 +8,7 @@
 
 #import "Kiwi.h"
 #import "IVGFilterCriteria.h"
+#import "IVGConstants.h"
 
 SPEC_BEGIN(IVGFilterCriteriaSpec)
 
@@ -19,16 +20,32 @@ describe(@"filterCriteria", ^{
     });
 
     context(@"when first initialized", ^{
+        __block NSError *error;
+        __block BOOL valid;
+
+        beforeEach(^{
+            valid = [filterCriteria validateCriteriaError:&error];
+        });
 
         it(@"should be invalid", ^{
-            BOOL valid = [filterCriteria validateCriteriaError:nil];
             [[@(valid) should] equal:@(NO)];
         });
 
         it(@"should produce error when invalid", ^{
-            NSError *error;
-            [filterCriteria validateCriteriaError:&error];
             [error shouldNotBeNil];
+        });
+
+        it(@"error domain should be set", ^{
+            [[[error domain] should] equal:kIVGErrorDomain];
+        });
+
+        it(@"error code should be set", ^{
+            [[@([error code]) should] equal:@(kIVGError_invalidFilterCriteria)];
+        });
+
+        it(@"userInfo should contain criteriaErrors", ^{
+            id criteriaErrors = [[error userInfo] objectForKey:@"criteriaErrors"];
+            [criteriaErrors shouldNotBeNil];
         });
     });
 
