@@ -37,7 +37,7 @@
     IVGEarthquake *earthquake = [[IVGEarthquake alloc] init];
     //Src,Eqid,Version,Datetime,Lat,Lon,Magnitude,Depth,NST,Region
     earthquake.source = [dict objectForKey:@"Src"];
-    earthquake.earthquakeId = [[dict objectForKey:@"Eqid"] longValue];
+    earthquake.earthquakeId = [[dict objectForKey:@"Eqid"] integerValue];
     earthquake.version = [[dict objectForKey:@"Version"] integerValue];
     earthquake.datetime = [self parseDatetimeString:[dict objectForKey:@"Datetime"]];
     earthquake.latitude = [[dict objectForKey:@"Lat"] doubleValue];
