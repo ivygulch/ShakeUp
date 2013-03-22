@@ -69,7 +69,7 @@ describe(@"earthquakeDataService", ^{
             successBlock(nil,nil);
             [[loadedData should] haveCountOf:2];
             for (id item in loadedData) {
-                [[item should] beKindOfClass:[IVGEarthquake class]];
+                [[item should] beKindOfClass:[NSDictionary class]];
             }
         });
     });
