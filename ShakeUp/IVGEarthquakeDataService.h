@@ -11,6 +11,10 @@
 
 typedef void(^IVGEDSLoadDataBlock)(NSArray *data);
 
+// create typedefs for AFNetworking blocks for our ease of specification
+typedef void(^AFNetworkingSuccessBlock)(AFHTTPRequestOperation *operation, id responseObject);
+typedef void(^AFNetworkingFailureBlock)(AFHTTPRequestOperation *operation, NSError *error);
+
 @interface IVGEarthquakeDataService : NSObject
 
 - (id) initWithHTTPClient:(AFHTTPClient *) httpClient;

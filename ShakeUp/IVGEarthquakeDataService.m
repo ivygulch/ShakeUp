@@ -36,4 +36,9 @@
 
 }
 
+- (AFNetworkingSuccessBlock) buildSuccessBlockWithLoadDataBlock:(IVGEDSLoadDataBlock) loadDataBlock;
+{
+    return nil;
+}
+
 @end

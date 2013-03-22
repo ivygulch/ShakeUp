@@ -11,6 +11,10 @@
 #import "IVGEarthquakeDataService.h"
 #import "IVGUSGSAPIConstants.h"
 
+@interface IVGEarthquakeDataService()
+- (AFNetworkingSuccessBlock) buildSuccessBlockWithLoadDataBlock:(IVGEDSLoadDataBlock) loadDataBlock;
+@end;
+
 SPEC_BEGIN(IVGEarthquakeDataServiceSpecs)
 
 describe(@"earthquakeDataService", ^{
@@ -35,6 +39,15 @@ describe(@"earthquakeDataService", ^{
             [[spy.argument should] equal:kIVGUSGSEarthquake7DayM1URI];
         });
         
+    });
+
+    context(@"successBlock", ^{
+        __block AFNetworkingSuccessBlock successBlock;
+
+        it(@"should not be nil", ^{
+            successBlock = [earthquakeDataService buildSuccessBlockWithLoadDataBlock:nil];
+            [successBlock shouldNotBeNil];
+        });
     });
     
 });
