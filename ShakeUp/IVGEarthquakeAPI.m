@@ -9,7 +9,6 @@
 #import "IVGEarthquakeAPI.h"
 #import "IVGEarthquake.h"
 
-
 @interface IVGEarthquakeAPI()
 @property (nonatomic,strong) IVGEarthquakeDataService *earthquakeDataService;
 @property (nonatomic,strong) NSDateFormatter *dateFormatter;
@@ -50,7 +49,7 @@
     return earthquake;
 }
 
-- (void) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock;
+- (void) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock withFilterCriteria:(IVGFilterCriteria *) filterCriteria;
 {
     [self.earthquakeDataService loadData:^(NSArray *dictItems) {
         NSMutableArray *result = [NSMutableArray arrayWithCapacity:[dictItems count]];

@@ -97,7 +97,7 @@ describe(@"earthquakeAPI", ^{
             __block NSArray *currentData = nil;
             [earthquakeAPI retrieveCurrentData:^(NSArray *data) {
                 currentData = data;
-            }];
+            } withFilterCriteria:nil];
 
             IVGEDSLoadDataBlock actualLoadedDataBlock = spy.argument;
             actualLoadedDataBlock(mockEarthquakeDataDictionaries);

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "IVGEarthquakeDataService.h"
+#import "IVGFilterCriteria.h"
 
 typedef void(^IVGAPIRetrieveDataBlock)(NSArray *data);
 
@@ -15,6 +16,6 @@ typedef void(^IVGAPIRetrieveDataBlock)(NSArray *data);
 
 - (id) initWithDataService:(IVGEarthquakeDataService *) earthquakeDataService;
 
-- (void) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock;
+- (void) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock withFilterCriteria:(IVGFilterCriteria *) filterCriteria;
 
 @end
