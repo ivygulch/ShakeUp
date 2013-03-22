@@ -48,6 +48,16 @@ describe(@"earthquakeDataService", ^{
             successBlock = [earthquakeDataService buildSuccessBlockWithLoadDataBlock:nil];
             [successBlock shouldNotBeNil];
         });
+
+        it(@"should call loadDataBlock", ^{
+            __block BOOL loadDataBlockCalled = NO;
+            IVGEDSLoadDataBlock dummyLoadDataBlock = ^(NSArray *data) {
+                loadDataBlockCalled = YES;
+            };
+            successBlock = [earthquakeDataService buildSuccessBlockWithLoadDataBlock:dummyLoadDataBlock];
+            successBlock(nil,nil);
+            [[@(loadDataBlockCalled) shouldEventually] equal:@(YES)];
+        });
     });
     
 });
