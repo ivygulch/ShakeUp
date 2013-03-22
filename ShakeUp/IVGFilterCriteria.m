@@ -12,7 +12,7 @@
 
 - (BOOL) validateCriteriaError:(NSError *) error;
 {
-    return YES;
+    return NO;
 }
 
 @end
