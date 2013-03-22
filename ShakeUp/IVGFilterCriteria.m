@@ -10,7 +10,7 @@
 
 @implementation IVGFilterCriteria
 
-- (BOOL) validateCriteriaError:(NSError *) error;
+- (BOOL) validateCriteriaError:(NSError **) error;
 {
     return NO;
 }

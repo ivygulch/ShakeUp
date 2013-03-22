@@ -19,6 +19,6 @@
 @property (nonatomic,strong) NSDate *minimumDatetime;
 @property (nonatomic,strong) NSDate *maximumDatetime;
 
-- (BOOL) validateCriteriaError:(NSError *) error;
+- (BOOL) validateCriteriaError:(NSError **) error;
 
 @end

@@ -24,6 +24,12 @@ describe(@"filterCriteria", ^{
             BOOL valid = [filterCriteria validateCriteriaError:nil];
             [[@(valid) should] equal:@(NO)];
         });
+
+        it(@"should produce error when invalid", ^{
+            NSError *error;
+            [filterCriteria validateCriteriaError:&error];
+            [error shouldNotBeNil];
+        });
     });
 
 });
