@@ -260,8 +260,8 @@ describe(@"earthquakeAPI", ^{
                 filterCriteria.maximumLatitude = @(90.0);
                 filterCriteria.minimumLongitude = @(-180.0);
                 filterCriteria.maximumLongitude = @(180.0);
-                filterCriteria.minimumMagnitude = @(22.0);
-                filterCriteria.maximumMagnitude = @(25.0);
+                filterCriteria.minimumMagnitude = @(32.0);
+                filterCriteria.maximumMagnitude = @(35.0);
 
                 __block NSArray *currentData = nil;
 
