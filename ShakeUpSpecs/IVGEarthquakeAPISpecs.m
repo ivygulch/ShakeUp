@@ -142,11 +142,12 @@ describe(@"earthquakeAPI", ^{
 
             beforeEach(^{
                 earthquakeDataServiceMock = [IVGEarthquakeDataService nullMock];
-                [[earthquakeDataServiceMock should] receive:@selector(loadData:)];
                 earthquakeAPI = [[IVGEarthquakeAPI alloc] initWithDataService:earthquakeDataServiceMock];
             });
 
             it(@"with no filter, should return all data", ^{
+                [[earthquakeDataServiceMock should] receive:@selector(loadData:)];
+
                 KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
 
                 __block NSArray *currentData = nil;
@@ -172,6 +173,8 @@ describe(@"earthquakeAPI", ^{
             });
 
             it(@"with invalid filter, should fail", ^{
+                [[earthquakeDataServiceMock shouldNot] receive:@selector(loadData:)];
+
                 IVGFilterCriteria *filterCriteria = [[IVGFilterCriteria alloc] init];
                 [[@([filterCriteria validateCriteriaError:nil]) should] equal:@(NO)];
 
@@ -186,6 +189,8 @@ describe(@"earthquakeAPI", ^{
             });
 
             it(@"with lat/lon filter, should return proper subset", ^{
+                [[earthquakeDataServiceMock should] receive:@selector(loadData:)];
+
                 KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
 
                 IVGFilterCriteria *filterCriteria = [[IVGFilterCriteria alloc] init];
@@ -203,14 +208,44 @@ describe(@"earthquakeAPI", ^{
                               withFilterCriteria:filterCriteria
                               error:nil];
                 [[@(valid) should] equal:@(YES)];
-                
+
                 IVGEDSLoadDataBlock loadBlock = spy.argument;
                 loadBlock(exampleData);
-                
-                [[exampleData should] haveCountOf:2];
-                
+
+                [[currentData should] haveCountOf:2];
+
                 NSSet *earthquakeIds = extractEarthquakeIds(currentData);
                 [[earthquakeIds should] containObjectsInArray:@[@(7),@(8)]];
+            });
+
+            it(@"with full lat/lon filter, should return all items", ^{
+                [[earthquakeDataServiceMock should] receive:@selector(loadData:)];
+
+                KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
+
+                IVGFilterCriteria *filterCriteria = [[IVGFilterCriteria alloc] init];
+                filterCriteria.minimumLatitude = @(-90.0);
+                filterCriteria.maximumLatitude = @(90.0);
+                filterCriteria.minimumLongitude = @(-180.0);
+                filterCriteria.maximumLongitude = @(180.0);
+
+                __block NSArray *currentData = nil;
+
+                BOOL valid = [earthquakeAPI
+                              retrieveCurrentData:^(NSArray *data) {
+                                  currentData = data;
+                              }
+                              withFilterCriteria:filterCriteria
+                              error:nil];
+                [[@(valid) should] equal:@(YES)];
+
+                IVGEDSLoadDataBlock loadBlock = spy.argument;
+                loadBlock(exampleData);
+
+                [[currentData should] haveCountOf:[exampleData count]];
+
+                NSSet *earthquakeIds = extractEarthquakeIds(currentData);
+                [[earthquakeIds should] containObjectsInArray:@[@(1),@(2),@(3),@(4),@(5),@(6),@(7),@(8),@(9)]];
             });
         });
     });

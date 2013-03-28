@@ -62,9 +62,42 @@
     }
 }
 
+- (BOOL) value:(id) value matchesMinimum:(id) minimum withRequired:(BOOL) required;
+{
+    if ((value == nil) || (minimum == nil)) {
+        return !required;
+    } else if ([value respondsToSelector:@selector(compare:)]){
+        NSComparisonResult comparisonResult = [value compare:minimum];
+        return comparisonResult != NSOrderedAscending;
+    } else {
+        return NO;
+    }
+}
+
+- (BOOL) value:(id) value matchesMaximum:(id) maximum withRequired:(BOOL) required;
+{
+    if ((value == nil) || (maximum == nil)) {
+        return !required;
+    } else if ([value respondsToSelector:@selector(compare:)]){
+        NSComparisonResult comparisonResult = [value compare:maximum];
+        return comparisonResult != NSOrderedDescending;
+    } else {
+        return NO;
+    }
+}
+
+
 - (BOOL) matches:(IVGEarthquake *) earthquake;
 {
-    return NO;
+    return [self value:@(earthquake.latitude) matchesMinimum:self.minimumLatitude withRequired:YES]
+    && [self value:@(earthquake.latitude) matchesMaximum:self.maximumLatitude withRequired:YES]
+    && [self value:@(earthquake.longitude) matchesMinimum:self.minimumLongitude withRequired:YES]
+    && [self value:@(earthquake.longitude) matchesMaximum:self.maximumLongitude withRequired:YES]
+    && [self value:@(earthquake.magnitude) matchesMinimum:self.minimumMagnitude withRequired:NO]
+    && [self value:@(earthquake.magnitude) matchesMaximum:self.maximumMagnitude withRequired:NO]
+    && [self value:earthquake.datetime matchesMinimum:self.minimumDatetime withRequired:NO]
+    && [self value:earthquake.datetime matchesMaximum:self.maximumDatetime withRequired:NO]
+    ;
 }
 
 @end
