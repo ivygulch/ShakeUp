@@ -7,19 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F81785491703E32200CF8772 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8F00165582870092FC61 /* CoreGraphics.framework */; };
+		F817854A1703E32300CF8772 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D7DCD616D41897005709D6 /* SystemConfiguration.framework */; };
+		F817854B1703E32300CF8772 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D7DCD416D4187F005709D6 /* MobileCoreServices.framework */; };
+		F817854C1703E32300CF8772 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8F00165582870092FC61 /* CoreGraphics.framework */; };
+		F817854D1703E32700CF8772 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8F52165583A50092FC61 /* libKiwi.a */; };
+		F81785521703E50000CF8772 /* IVGConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FBE16FC900F008A9634 /* IVGConstants.m */; };
+		F81785531703E50000CF8772 /* IVGEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B24CDA16645BB800684980 /* IVGEarthquake.m */; };
+		F81785541703E50000CF8772 /* IVGEarthquakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */; };
+		F81785551703E50000CF8772 /* IVGFilterCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FB516FC7A1F008A9634 /* IVGFilterCriteria.m */; };
+		F81785561703E50000CF8772 /* IVGEarthquakeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */; };
+		F81785571703E50000CF8772 /* IVGUSGSAPIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCDB16D41A2A005709D6 /* IVGUSGSAPIConstants.m */; };
+		F81785581703E50000CF8772 /* NSString+IVGCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FAF16FC3506008A9634 /* NSString+IVGCSVParser.m */; };
+		F81785591703E50000CF8772 /* IVGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FD8F0C165582870092FC61 /* IVGAppDelegate.m */; };
+		F817855A1703E50000CF8772 /* IVGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FD8F15165582880092FC61 /* IVGViewController.m */; };
+		F817855B1703E50000CF8772 /* IVGConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FBE16FC900F008A9634 /* IVGConstants.m */; };
+		F817855C1703E50000CF8772 /* IVGEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B24CDA16645BB800684980 /* IVGEarthquake.m */; };
+		F817855D1703E50000CF8772 /* IVGEarthquakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */; };
+		F817855E1703E50000CF8772 /* IVGFilterCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FB516FC7A1F008A9634 /* IVGFilterCriteria.m */; };
+		F817855F1703E50000CF8772 /* IVGEarthquakeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */; };
+		F81785601703E50000CF8772 /* IVGUSGSAPIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCDB16D41A2A005709D6 /* IVGUSGSAPIConstants.m */; };
+		F81785611703E50000CF8772 /* NSString+IVGCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FAF16FC3506008A9634 /* NSString+IVGCSVParser.m */; };
+		F81785621703E50000CF8772 /* IVGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FD8F0C165582870092FC61 /* IVGAppDelegate.m */; };
+		F81785631703E50000CF8772 /* IVGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FD8F15165582880092FC61 /* IVGViewController.m */; };
+		F81785641703E50500CF8772 /* IVGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8FD8F17165582880092FC61 /* IVGViewController.xib */; };
+		F81785651703E50600CF8772 /* IVGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8FD8F17165582880092FC61 /* IVGViewController.xib */; };
+		F81785661703E61000CF8772 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FBE76516FC24580090175F /* CHCSVParser.m */; };
+		F81785671703E61000CF8772 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCB016D41683005709D6 /* AFHTTPClient.m */; };
+		F81785681703E61000CF8772 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCB216D41683005709D6 /* AFHTTPRequestOperation.m */; };
+		F81785691703E61000CF8772 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCB416D41683005709D6 /* AFImageRequestOperation.m */; };
+		F817856A1703E61000CF8772 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCB616D41683005709D6 /* AFJSONRequestOperation.m */; };
+		F817856B1703E61000CF8772 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCB816D41683005709D6 /* AFNetworkActivityIndicatorManager.m */; };
+		F817856C1703E61000CF8772 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCBB16D41683005709D6 /* AFPropertyListRequestOperation.m */; };
+		F817856D1703E61000CF8772 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCBD16D41683005709D6 /* AFURLConnectionOperation.m */; };
+		F817856E1703E61000CF8772 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCBF16D41683005709D6 /* AFXMLRequestOperation.m */; };
+		F817856F1703E61000CF8772 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCC116D41683005709D6 /* UIImageView+AFNetworking.m */; };
 		F81AF3E61662C5C20050120B /* IVGEarthquakeAPISpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E51662C5C20050120B /* IVGEarthquakeAPISpecs.m */; };
 		F81AF3EA1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */; };
-		F81AF3EB1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */; };
 		F8389FB016FC3506008A9634 /* NSString+IVGCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FAF16FC3506008A9634 /* NSString+IVGCSVParser.m */; };
-		F8389FB116FC3506008A9634 /* NSString+IVGCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FAF16FC3506008A9634 /* NSString+IVGCSVParser.m */; };
 		F8389FB316FC3566008A9634 /* NSStringIVGCSVParserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FB216FC3566008A9634 /* NSStringIVGCSVParserSpec.m */; };
 		F8389FB616FC7A1F008A9634 /* IVGFilterCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FB516FC7A1F008A9634 /* IVGFilterCriteria.m */; };
-		F8389FB716FC7A1F008A9634 /* IVGFilterCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FB516FC7A1F008A9634 /* IVGFilterCriteria.m */; };
 		F8389FBB16FC813B008A9634 /* IVGFilterCriteriaSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FBA16FC813B008A9634 /* IVGFilterCriteriaSpec.m */; };
 		F8389FBF16FC9010008A9634 /* IVGConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FBE16FC900F008A9634 /* IVGConstants.m */; };
-		F8389FC016FC9010008A9634 /* IVGConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8389FBE16FC900F008A9634 /* IVGConstants.m */; };
+		F8584E361703E16B0066C260 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8F40165583860092FC61 /* SenTestingKit.framework */; };
+		F8584E371703E16B0066C260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFC165582870092FC61 /* UIKit.framework */; };
+		F8584E381703E16B0066C260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFE165582870092FC61 /* Foundation.framework */; };
+		F8584E3E1703E16B0066C260 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8584E3C1703E16B0066C260 /* InfoPlist.strings */; };
+		F8584E481703E25E0066C260 /* IVGEarthquakeDataServiceIntegrationSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = F8584E471703E25E0066C260 /* IVGEarthquakeDataServiceIntegrationSpecs.m */; };
 		F8B24CDB16645BB900684980 /* IVGEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B24CDA16645BB800684980 /* IVGEarthquake.m */; };
-		F8B24CDC16645BB900684980 /* IVGEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B24CDA16645BB800684980 /* IVGEarthquake.m */; };
 		F8D7DC9016D41540005709D6 /* IVGEarthquakeDataServiceSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DC8F16D41540005709D6 /* IVGEarthquakeDataServiceSpecs.m */; };
 		F8D7DCC216D41683005709D6 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCB016D41683005709D6 /* AFHTTPClient.m */; };
 		F8D7DCC316D41683005709D6 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCB016D41683005709D6 /* AFHTTPClient.m */; };
@@ -44,9 +79,7 @@
 		F8D7DCD816D4189E005709D6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D7DCD416D4187F005709D6 /* MobileCoreServices.framework */; };
 		F8D7DCD916D418A1005709D6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D7DCD616D41897005709D6 /* SystemConfiguration.framework */; };
 		F8D7DCDC16D41A2A005709D6 /* IVGUSGSAPIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCDB16D41A2A005709D6 /* IVGUSGSAPIConstants.m */; };
-		F8D7DCDD16D41A2A005709D6 /* IVGUSGSAPIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D7DCDB16D41A2A005709D6 /* IVGUSGSAPIConstants.m */; };
 		F8DE929F166550BB000840C7 /* IVGEarthquakeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */; };
-		F8DE92A0166550BB000840C7 /* IVGEarthquakeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8DE929E166550BB000840C7 /* IVGEarthquakeDataService.m */; };
 		F8FBE76616FC24580090175F /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FBE76516FC24580090175F /* CHCSVParser.m */; };
 		F8FBE76716FC24580090175F /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FBE76516FC24580090175F /* CHCSVParser.m */; };
 		F8FD8EFD165582870092FC61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FD8EFC165582870092FC61 /* UIKit.framework */; };
@@ -79,6 +112,11 @@
 		F8389FBA16FC813B008A9634 /* IVGFilterCriteriaSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGFilterCriteriaSpec.m; sourceTree = "<group>"; };
 		F8389FBD16FC900F008A9634 /* IVGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGConstants.h; sourceTree = "<group>"; };
 		F8389FBE16FC900F008A9634 /* IVGConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGConstants.m; sourceTree = "<group>"; };
+		F8584E351703E16B0066C260 /* ShakeUpIntegrationSpecs.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShakeUpIntegrationSpecs.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8584E3B1703E16B0066C260 /* ShakeUpIntegrationSpecs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShakeUpIntegrationSpecs-Info.plist"; sourceTree = "<group>"; };
+		F8584E3D1703E16B0066C260 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F8584E421703E16B0066C260 /* ShakeUpIntegrationSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShakeUpIntegrationSpecs-Prefix.pch"; sourceTree = "<group>"; };
+		F8584E471703E25E0066C260 /* IVGEarthquakeDataServiceIntegrationSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquakeDataServiceIntegrationSpecs.m; sourceTree = "<group>"; };
 		F8B24CD916645BB800684980 /* IVGEarthquake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVGEarthquake.h; sourceTree = "<group>"; };
 		F8B24CDA16645BB800684980 /* IVGEarthquake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquake.m; sourceTree = "<group>"; };
 		F8D7DC8F16D41540005709D6 /* IVGEarthquakeDataServiceSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IVGEarthquakeDataServiceSpecs.m; sourceTree = "<group>"; };
@@ -221,6 +259,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F8584E311703E16B0066C260 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8584E361703E16B0066C260 /* SenTestingKit.framework in Frameworks */,
+				F8584E371703E16B0066C260 /* UIKit.framework in Frameworks */,
+				F8584E381703E16B0066C260 /* Foundation.framework in Frameworks */,
+				F817854A1703E32300CF8772 /* SystemConfiguration.framework in Frameworks */,
+				F817854B1703E32300CF8772 /* MobileCoreServices.framework in Frameworks */,
+				F817854C1703E32300CF8772 /* CoreGraphics.framework in Frameworks */,
+				F817854D1703E32700CF8772 /* libKiwi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8FD8EF5165582870092FC61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,12 +295,32 @@
 				F8FD8F53165583A50092FC61 /* libKiwi.a in Frameworks */,
 				F8D7DCD816D4189E005709D6 /* MobileCoreServices.framework in Frameworks */,
 				F8D7DCD916D418A1005709D6 /* SystemConfiguration.framework in Frameworks */,
+				F81785491703E32200CF8772 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8584E391703E16B0066C260 /* ShakeUpIntegrationSpecs */ = {
+			isa = PBXGroup;
+			children = (
+				F8584E471703E25E0066C260 /* IVGEarthquakeDataServiceIntegrationSpecs.m */,
+				F8584E3A1703E16B0066C260 /* Supporting Files */,
+			);
+			path = ShakeUpIntegrationSpecs;
+			sourceTree = "<group>";
+		};
+		F8584E3A1703E16B0066C260 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8584E3B1703E16B0066C260 /* ShakeUpIntegrationSpecs-Info.plist */,
+				F8584E3C1703E16B0066C260 /* InfoPlist.strings */,
+				F8584E421703E16B0066C260 /* ShakeUpIntegrationSpecs-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F8D7DC9116D41649005709D6 /* External */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +371,7 @@
 				F8D7DC9116D41649005709D6 /* External */,
 				F8FD8F02165582870092FC61 /* ShakeUp */,
 				F8FD8F44165583860092FC61 /* ShakeUpSpecs */,
+				F8584E391703E16B0066C260 /* ShakeUpIntegrationSpecs */,
 				F8FD8EFB165582870092FC61 /* Frameworks */,
 				F8FD8EF9165582870092FC61 /* Products */,
 			);
@@ -309,6 +382,7 @@
 			children = (
 				F8FD8EF8165582870092FC61 /* ShakeUp.app */,
 				F8FD8F3F165583850092FC61 /* ShakeUpSpecs.octest */,
+				F8584E351703E16B0066C260 /* ShakeUpIntegrationSpecs.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,10 +404,10 @@
 		F8FD8F02165582870092FC61 /* ShakeUp */ = {
 			isa = PBXGroup;
 			children = (
-				F8B24CD916645BB800684980 /* IVGEarthquake.h */,
-				F8B24CDA16645BB800684980 /* IVGEarthquake.m */,
 				F8389FBD16FC900F008A9634 /* IVGConstants.h */,
 				F8389FBE16FC900F008A9634 /* IVGConstants.m */,
+				F8B24CD916645BB800684980 /* IVGEarthquake.h */,
+				F8B24CDA16645BB800684980 /* IVGEarthquake.m */,
 				F81AF3E81662C5E10050120B /* IVGEarthquakeAPI.h */,
 				F81AF3E91662C5E10050120B /* IVGEarthquakeAPI.m */,
 				F8389FB416FC7A1F008A9634 /* IVGFilterCriteria.h */,
@@ -488,6 +562,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F8584E341703E16B0066C260 /* ShakeUpIntegrationSpecs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8584E451703E16B0066C260 /* Build configuration list for PBXNativeTarget "ShakeUpIntegrationSpecs" */;
+			buildPhases = (
+				F8584E301703E16B0066C260 /* Sources */,
+				F8584E311703E16B0066C260 /* Frameworks */,
+				F8584E321703E16B0066C260 /* Resources */,
+				F8584E331703E16B0066C260 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShakeUpIntegrationSpecs;
+			productName = ShakeUpIntegrationSpecs;
+			productReference = F8584E351703E16B0066C260 /* ShakeUpIntegrationSpecs.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		F8FD8EF7165582870092FC61 /* ShakeUp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8FD8F1C165582880092FC61 /* Build configuration list for PBXNativeTarget "ShakeUp" */;
@@ -547,11 +639,21 @@
 			targets = (
 				F8FD8EF7165582870092FC61 /* ShakeUp */,
 				F8FD8F3E165583850092FC61 /* ShakeUpSpecs */,
+				F8584E341703E16B0066C260 /* ShakeUpIntegrationSpecs */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F8584E321703E16B0066C260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8584E3E1703E16B0066C260 /* InfoPlist.strings in Resources */,
+				F81785641703E50500CF8772 /* IVGViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8FD8EF6165582870092FC61 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -569,12 +671,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8FD8F49165583860092FC61 /* InfoPlist.strings in Resources */,
+				F81785651703E50600CF8772 /* IVGViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		F8584E331703E16B0066C260 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		F8FD8F3D165583850092FC61 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -591,6 +707,33 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F8584E301703E16B0066C260 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8584E481703E25E0066C260 /* IVGEarthquakeDataServiceIntegrationSpecs.m in Sources */,
+				F817855B1703E50000CF8772 /* IVGConstants.m in Sources */,
+				F817855C1703E50000CF8772 /* IVGEarthquake.m in Sources */,
+				F817855D1703E50000CF8772 /* IVGEarthquakeAPI.m in Sources */,
+				F817855E1703E50000CF8772 /* IVGFilterCriteria.m in Sources */,
+				F817855F1703E50000CF8772 /* IVGEarthquakeDataService.m in Sources */,
+				F81785601703E50000CF8772 /* IVGUSGSAPIConstants.m in Sources */,
+				F81785611703E50000CF8772 /* NSString+IVGCSVParser.m in Sources */,
+				F81785621703E50000CF8772 /* IVGAppDelegate.m in Sources */,
+				F81785631703E50000CF8772 /* IVGViewController.m in Sources */,
+				F81785661703E61000CF8772 /* CHCSVParser.m in Sources */,
+				F81785671703E61000CF8772 /* AFHTTPClient.m in Sources */,
+				F81785681703E61000CF8772 /* AFHTTPRequestOperation.m in Sources */,
+				F81785691703E61000CF8772 /* AFImageRequestOperation.m in Sources */,
+				F817856A1703E61000CF8772 /* AFJSONRequestOperation.m in Sources */,
+				F817856B1703E61000CF8772 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F817856C1703E61000CF8772 /* AFPropertyListRequestOperation.m in Sources */,
+				F817856D1703E61000CF8772 /* AFURLConnectionOperation.m in Sources */,
+				F817856E1703E61000CF8772 /* AFXMLRequestOperation.m in Sources */,
+				F817856F1703E61000CF8772 /* UIImageView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8FD8EF4165582870092FC61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -623,9 +766,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F81AF3E61662C5C20050120B /* IVGEarthquakeAPISpecs.m in Sources */,
-				F81AF3EB1662C5E10050120B /* IVGEarthquakeAPI.m in Sources */,
-				F8B24CDC16645BB900684980 /* IVGEarthquake.m in Sources */,
-				F8DE92A0166550BB000840C7 /* IVGEarthquakeDataService.m in Sources */,
 				F8D7DC9016D41540005709D6 /* IVGEarthquakeDataServiceSpecs.m in Sources */,
 				F8D7DCC316D41683005709D6 /* AFHTTPClient.m in Sources */,
 				F8D7DCC516D41683005709D6 /* AFHTTPRequestOperation.m in Sources */,
@@ -636,19 +776,32 @@
 				F8D7DCCF16D41683005709D6 /* AFURLConnectionOperation.m in Sources */,
 				F8D7DCD116D41683005709D6 /* AFXMLRequestOperation.m in Sources */,
 				F8D7DCD316D41683005709D6 /* UIImageView+AFNetworking.m in Sources */,
-				F8D7DCDD16D41A2A005709D6 /* IVGUSGSAPIConstants.m in Sources */,
 				F8FBE76716FC24580090175F /* CHCSVParser.m in Sources */,
-				F8389FB116FC3506008A9634 /* NSString+IVGCSVParser.m in Sources */,
 				F8389FB316FC3566008A9634 /* NSStringIVGCSVParserSpec.m in Sources */,
-				F8389FB716FC7A1F008A9634 /* IVGFilterCriteria.m in Sources */,
 				F8389FBB16FC813B008A9634 /* IVGFilterCriteriaSpec.m in Sources */,
-				F8389FC016FC9010008A9634 /* IVGConstants.m in Sources */,
+				F81785521703E50000CF8772 /* IVGConstants.m in Sources */,
+				F81785531703E50000CF8772 /* IVGEarthquake.m in Sources */,
+				F81785541703E50000CF8772 /* IVGEarthquakeAPI.m in Sources */,
+				F81785551703E50000CF8772 /* IVGFilterCriteria.m in Sources */,
+				F81785561703E50000CF8772 /* IVGEarthquakeDataService.m in Sources */,
+				F81785571703E50000CF8772 /* IVGUSGSAPIConstants.m in Sources */,
+				F81785581703E50000CF8772 /* NSString+IVGCSVParser.m in Sources */,
+				F81785591703E50000CF8772 /* IVGAppDelegate.m in Sources */,
+				F817855A1703E50000CF8772 /* IVGViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F8584E3C1703E16B0066C260 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8584E3D1703E16B0066C260 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F8FD8F05165582870092FC61 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -676,6 +829,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F8584E431703E16B0066C260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShakeUpIntegrationSpecs/ShakeUpIntegrationSpecs-Prefix.pch";
+				INFOPLIST_FILE = "ShakeUpIntegrationSpecs/ShakeUpIntegrationSpecs-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../KiwiPublicHeaders\"";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F8584E441703E16B0066C260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShakeUpIntegrationSpecs/ShakeUpIntegrationSpecs-Prefix.pch";
+				INFOPLIST_FILE = "ShakeUpIntegrationSpecs/ShakeUpIntegrationSpecs-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../KiwiPublicHeaders\"";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		F8FD8F1A165582880092FC61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -799,6 +1006,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F8584E451703E16B0066C260 /* Build configuration list for PBXNativeTarget "ShakeUpIntegrationSpecs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8584E431703E16B0066C260 /* Debug */,
+				F8584E441703E16B0066C260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F8FD8EF2165582870092FC61 /* Build configuration list for PBXProject "ShakeUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
