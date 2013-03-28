@@ -128,15 +128,15 @@ describe(@"earthquakeAPI", ^{
             beforeAll(^{
                 exampleData =
                 @[
-                  @{@"Eqid":@"1",@"Lat":@"11.0",@"Lon":@"21.0",@"Magnitude":@"31.0",@"Datetime":@"Friday, March 22, 2013 01:00:00 UTC"},
+                  @{@"Eqid":@"1",@"Lat":@"11.0",@"Lon":@"21.0",@"Magnitude":@"31.0",@"Datetime":@"Thursday, March 21, 2013 01:00:00 UTC"},
                   @{@"Eqid":@"2",@"Lat":@"12.0",@"Lon":@"22.0",@"Magnitude":@"32.0",@"Datetime":@"Friday, March 22, 2013 02:00:00 UTC"},
-                  @{@"Eqid":@"3",@"Lat":@"13.0",@"Lon":@"23.0",@"Magnitude":@"33.0",@"Datetime":@"Friday, March 22, 2013 03:00:00 UTC"},
-                  @{@"Eqid":@"4",@"Lat":@"14.0",@"Lon":@"24.0",@"Magnitude":@"34.0",@"Datetime":@"Friday, March 22, 2013 04:00:00 UTC"},
-                  @{@"Eqid":@"5",@"Lat":@"15.0",@"Lon":@"25.0",@"Magnitude":@"35.0",@"Datetime":@"Friday, March 22, 2013 05:00:00 UTC"},
-                  @{@"Eqid":@"6",@"Lat":@"16.0",@"Lon":@"26.0",@"Magnitude":@"36.0",@"Datetime":@"Friday, March 22, 2013 06:00:00 UTC"},
-                  @{@"Eqid":@"7",@"Lat":@"17.0",@"Lon":@"27.0",@"Magnitude":@"37.0",@"Datetime":@"Friday, March 22, 2013 07:00:00 UTC"},
-                  @{@"Eqid":@"8",@"Lat":@"18.0",@"Lon":@"28.0",@"Magnitude":@"38.0",@"Datetime":@"Friday, March 22, 2013 08:00:00 UTC"},
-                  @{@"Eqid":@"9",@"Lat":@"19.0",@"Lon":@"29.0",@"Magnitude":@"39.0",@"Datetime":@"Friday, March 22, 2013 09:00:00 UTC"}
+                  @{@"Eqid":@"3",@"Lat":@"13.0",@"Lon":@"23.0",@"Magnitude":@"33.0",@"Datetime":@"Saturday, March 23, 2013 03:00:00 UTC"},
+                  @{@"Eqid":@"4",@"Lat":@"14.0",@"Lon":@"24.0",@"Magnitude":@"34.0",@"Datetime":@"Sunday, March 24, 2013 04:00:00 UTC"},
+                  @{@"Eqid":@"5",@"Lat":@"15.0",@"Lon":@"25.0",@"Magnitude":@"35.0",@"Datetime":@"Monday, March 25, 2013 05:00:00 UTC"},
+                  @{@"Eqid":@"6",@"Lat":@"16.0",@"Lon":@"26.0",@"Magnitude":@"36.0",@"Datetime":@"Tuesday, March 26, 2013 06:00:00 UTC"},
+                  @{@"Eqid":@"7",@"Lat":@"17.0",@"Lon":@"27.0",@"Magnitude":@"37.0",@"Datetime":@"Wednesday, March 27, 2013 07:00:00 UTC"},
+                  @{@"Eqid":@"8",@"Lat":@"18.0",@"Lon":@"28.0",@"Magnitude":@"38.0",@"Datetime":@"Thursday, March 28, 2013 08:00:00 UTC"},
+                  @{@"Eqid":@"9",@"Lat":@"19.0",@"Lon":@"29.0",@"Magnitude":@"39.0",@"Datetime":@"Friday, March 29, 2013 09:00:00 UTC"}
                   ];
             });
 
@@ -277,6 +277,39 @@ describe(@"earthquakeAPI", ^{
                 loadBlock(exampleData);
 
                 NSArray *expectedIds = @[@(2),@(3),@(4),@(5)];
+                [[currentData should] haveCountOf:[expectedIds count]];
+
+                NSSet *earthquakeIds = extractEarthquakeIds(currentData);
+                [[earthquakeIds should] containObjectsInArray:expectedIds];
+            });
+
+            it(@"with datetime filter, should return proper subset", ^{
+                [[earthquakeDataServiceMock should] receive:@selector(loadData:)];
+
+                KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
+
+                IVGFilterCriteria *filterCriteria = [[IVGFilterCriteria alloc] init];
+                filterCriteria.minimumLatitude = @(-90.0);
+                filterCriteria.maximumLatitude = @(90.0);
+                filterCriteria.minimumLongitude = @(-180.0);
+                filterCriteria.maximumLongitude = @(180.0);
+                filterCriteria.minimumDatetime = [earthquakeAPI parseDatetimeString:@"Monday, March 25, 2013 00:00:00 UTC"];
+                filterCriteria.maximumDatetime = [earthquakeAPI parseDatetimeString:@"Thursday, March 28, 2013 23:59:59 UTC"];
+
+                __block NSArray *currentData = nil;
+
+                BOOL valid = [earthquakeAPI
+                              retrieveCurrentData:^(NSArray *data) {
+                                  currentData = data;
+                              }
+                              withFilterCriteria:filterCriteria
+                              error:nil];
+                [[@(valid) should] equal:@(YES)];
+
+                IVGEDSLoadDataBlock loadBlock = spy.argument;
+                loadBlock(exampleData);
+
+                NSArray *expectedIds = @[@(5),@(6),@(7),@(8)];
                 [[currentData should] haveCountOf:[expectedIds count]];
 
                 NSSet *earthquakeIds = extractEarthquakeIds(currentData);
