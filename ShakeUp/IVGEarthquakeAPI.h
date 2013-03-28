@@ -16,6 +16,6 @@ typedef void(^IVGAPIRetrieveDataBlock)(NSArray *data);
 
 - (id) initWithDataService:(IVGEarthquakeDataService *) earthquakeDataService;
 
-- (void) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock withFilterCriteria:(IVGFilterCriteria *) filterCriteria;
+- (BOOL) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock withFilterCriteria:(IVGFilterCriteria *) filterCriteria error:(NSError **) error;
 
 @end

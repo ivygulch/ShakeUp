@@ -62,4 +62,9 @@
     }
 }
 
+- (BOOL) matches:(IVGEarthquake *) earthquake;
+{
+    return NO;
+}
+
 @end

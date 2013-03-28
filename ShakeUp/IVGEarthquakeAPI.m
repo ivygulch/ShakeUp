@@ -49,15 +49,24 @@
     return earthquake;
 }
 
-- (void) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock withFilterCriteria:(IVGFilterCriteria *) filterCriteria;
+- (BOOL) retrieveCurrentData:(IVGAPIRetrieveDataBlock) retrieveDataBlock withFilterCriteria:(IVGFilterCriteria *) filterCriteria error:(NSError **) error;
 {
+    if (filterCriteria != nil) {
+        if (![filterCriteria validateCriteriaError:error]) {
+            return NO;
+        }
+    }
     [self.earthquakeDataService loadData:^(NSArray *dictItems) {
         NSMutableArray *result = [NSMutableArray arrayWithCapacity:[dictItems count]];
         for (NSDictionary *dict in dictItems) {
-            [result addObject:[self createEarthquakeFromDictionary:dict]];
+            IVGEarthquake *earthquake = [self createEarthquakeFromDictionary:dict];
+            if ((filterCriteria == nil) || [filterCriteria matches:earthquake]) {
+                [result addObject:earthquake];
+            }
         }
         retrieveDataBlock(result);
     }];
+    return YES;
 }
 
 @end

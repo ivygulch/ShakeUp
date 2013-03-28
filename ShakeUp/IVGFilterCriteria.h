@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IVGEarthquake.h"
 
 @interface IVGFilterCriteria : NSObject
 
@@ -20,5 +21,6 @@
 @property (nonatomic,strong) NSDate *maximumDatetime;
 
 - (BOOL) validateCriteriaError:(NSError **) error;
+- (BOOL) matches:(IVGEarthquake *) earthquake;
 
 @end

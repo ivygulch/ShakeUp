@@ -10,11 +10,20 @@
 #import "IVGEarthquakeAPI.h"
 #import "IVGEarthquakeDataService.h"
 #import "IVGEarthquake.h"
+#import "IVGFilterCriteria.h"
 
 @interface IVGEarthquakeAPI()
 - (NSDate *) parseDatetimeString:(NSString *) value;
 - (IVGEarthquake *) createEarthquakeFromDictionary:(NSDictionary *) dict;
 @end
+
+NSSet *extractEarthquakeIds(NSArray *earthquakeRecords) {
+    NSMutableSet *earthquakeIds = [NSMutableSet setWithCapacity:[earthquakeRecords count]];
+    for (id item in earthquakeRecords) {
+        [earthquakeIds addObject:@([item earthquakeId])];
+    }
+    return [NSSet setWithSet:earthquakeIds];
+}
 
 SPEC_BEGIN(IVGEarthquakeAPISpecs)
 
@@ -98,11 +107,11 @@ describe(@"earthquakeAPI", ^{
                 __block NSArray *currentData = nil;
                 [earthquakeAPI retrieveCurrentData:^(NSArray *data) {
                     currentData = data;
-                } withFilterCriteria:nil];
-                
+                } withFilterCriteria:nil error:nil];
+
                 IVGEDSLoadDataBlock actualLoadedDataBlock = spy.argument;
                 actualLoadedDataBlock(mockEarthquakeDataDictionaries);
-                
+
                 [currentData shouldNotBeNil];
                 [[currentData should] have:[mockEarthquakeDataDictionaries count]];
                 for (id item in currentData) {
@@ -110,7 +119,7 @@ describe(@"earthquakeAPI", ^{
                 }
             });
         });
-        
+
         context(@"filters", ^{
             __block id earthquakeDataServiceMock;
             __block IVGEarthquakeAPI *earthquakeAPI;
@@ -119,15 +128,15 @@ describe(@"earthquakeAPI", ^{
             beforeAll(^{
                 exampleData =
                 @[
-                  @{@"Eqid":@"1",@"Lat":@"1.0",@"Lon":@"1.0",@"Magnitude":@"1.0",@"Datetime":@"Friday, March 22, 2013 01:00:00 UTC"},
-                  @{@"Eqid":@"2",@"Lat":@"2.0",@"Lon":@"2.0",@"Magnitude":@"2.0",@"Datetime":@"Friday, March 22, 2013 02:00:00 UTC"},
-                  @{@"Eqid":@"3",@"Lat":@"3.0",@"Lon":@"3.0",@"Magnitude":@"3.0",@"Datetime":@"Friday, March 22, 2013 03:00:00 UTC"},
-                  @{@"Eqid":@"4",@"Lat":@"4.0",@"Lon":@"4.0",@"Magnitude":@"4.0",@"Datetime":@"Friday, March 22, 2013 04:00:00 UTC"},
-                  @{@"Eqid":@"5",@"Lat":@"5.0",@"Lon":@"5.0",@"Magnitude":@"5.0",@"Datetime":@"Friday, March 22, 2013 05:00:00 UTC"},
-                  @{@"Eqid":@"6",@"Lat":@"6.0",@"Lon":@"6.0",@"Magnitude":@"6.0",@"Datetime":@"Friday, March 22, 2013 06:00:00 UTC"},
-                  @{@"Eqid":@"7",@"Lat":@"7.0",@"Lon":@"7.0",@"Magnitude":@"7.0",@"Datetime":@"Friday, March 22, 2013 07:00:00 UTC"},
-                  @{@"Eqid":@"8",@"Lat":@"8.0",@"Lon":@"8.0",@"Magnitude":@"8.0",@"Datetime":@"Friday, March 22, 2013 08:00:00 UTC"},
-                  @{@"Eqid":@"9",@"Lat":@"9.0",@"Lon":@"9.0",@"Magnitude":@"9.0",@"Datetime":@"Friday, March 22, 2013 09:00:00 UTC"}
+                  @{@"Eqid":@"1",@"Lat":@"11.0",@"Lon":@"21.0",@"Magnitude":@"31.0",@"Datetime":@"Friday, March 22, 2013 01:00:00 UTC"},
+                  @{@"Eqid":@"2",@"Lat":@"12.0",@"Lon":@"22.0",@"Magnitude":@"32.0",@"Datetime":@"Friday, March 22, 2013 02:00:00 UTC"},
+                  @{@"Eqid":@"3",@"Lat":@"13.0",@"Lon":@"23.0",@"Magnitude":@"33.0",@"Datetime":@"Friday, March 22, 2013 03:00:00 UTC"},
+                  @{@"Eqid":@"4",@"Lat":@"14.0",@"Lon":@"24.0",@"Magnitude":@"34.0",@"Datetime":@"Friday, March 22, 2013 04:00:00 UTC"},
+                  @{@"Eqid":@"5",@"Lat":@"15.0",@"Lon":@"25.0",@"Magnitude":@"35.0",@"Datetime":@"Friday, March 22, 2013 05:00:00 UTC"},
+                  @{@"Eqid":@"6",@"Lat":@"16.0",@"Lon":@"26.0",@"Magnitude":@"36.0",@"Datetime":@"Friday, March 22, 2013 06:00:00 UTC"},
+                  @{@"Eqid":@"7",@"Lat":@"17.0",@"Lon":@"27.0",@"Magnitude":@"37.0",@"Datetime":@"Friday, March 22, 2013 07:00:00 UTC"},
+                  @{@"Eqid":@"8",@"Lat":@"18.0",@"Lon":@"28.0",@"Magnitude":@"38.0",@"Datetime":@"Friday, March 22, 2013 08:00:00 UTC"},
+                  @{@"Eqid":@"9",@"Lat":@"19.0",@"Lon":@"29.0",@"Magnitude":@"39.0",@"Datetime":@"Friday, March 22, 2013 09:00:00 UTC"}
                   ];
             });
 
@@ -141,21 +150,67 @@ describe(@"earthquakeAPI", ^{
                 KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
 
                 __block NSArray *currentData = nil;
-                [earthquakeAPI retrieveCurrentData:^(NSArray *data) {
-                    currentData = data;
-                } withFilterCriteria:nil];
+                BOOL valid = [earthquakeAPI
+                              retrieveCurrentData:^(NSArray *data) {
+                                  currentData = data;
+                              }
+                              withFilterCriteria:nil
+                              error:nil];
+                [[@(valid) should] equal:@(YES)];
 
                 IVGEDSLoadDataBlock loadBlock = spy.argument;
                 loadBlock(exampleData);
 
                 [currentData shouldNotBeNil];
                 [[currentData should] have:[exampleData count]];
-                NSMutableSet *earthquakeIds = [NSMutableSet setWithCapacity:[exampleData count]];
                 for (id item in currentData) {
                     [[item should] beKindOfClass:[IVGEarthquake class]];
-                    [earthquakeIds addObject:@([item earthquakeId])];
                 }
+
+                NSSet *earthquakeIds = extractEarthquakeIds(currentData);
                 [[earthquakeIds should] containObjectsInArray:@[@(1),@(2),@(3),@(4),@(5),@(6),@(7),@(8),@(9)]];
+            });
+
+            it(@"with invalid filter, should fail", ^{
+                IVGFilterCriteria *filterCriteria = [[IVGFilterCriteria alloc] init];
+                [[@([filterCriteria validateCriteriaError:nil]) should] equal:@(NO)];
+
+                NSError *error;
+                BOOL valid = [earthquakeAPI
+                              retrieveCurrentData:^(NSArray *data) {
+                              }
+                              withFilterCriteria:filterCriteria
+                              error:&error];
+                [[@(valid) should] equal:@(NO)];
+                [error shouldNotBeNil];
+            });
+
+            it(@"with lat/lon filter, should return proper subset", ^{
+                KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
+
+                IVGFilterCriteria *filterCriteria = [[IVGFilterCriteria alloc] init];
+                filterCriteria.minimumLatitude = @(15.0);
+                filterCriteria.maximumLatitude = @(18.0);
+                filterCriteria.minimumLongitude = @(27.0);
+                filterCriteria.maximumLongitude = @(29.0);
+
+                __block NSArray *currentData = nil;
+
+                BOOL valid = [earthquakeAPI
+                              retrieveCurrentData:^(NSArray *data) {
+                                  currentData = data;
+                              }
+                              withFilterCriteria:filterCriteria
+                              error:nil];
+                [[@(valid) should] equal:@(YES)];
+                
+                IVGEDSLoadDataBlock loadBlock = spy.argument;
+                loadBlock(exampleData);
+                
+                [[exampleData should] haveCountOf:2];
+                
+                NSSet *earthquakeIds = extractEarthquakeIds(currentData);
+                [[earthquakeIds should] containObjectsInArray:@[@(7),@(8)]];
             });
         });
     });
