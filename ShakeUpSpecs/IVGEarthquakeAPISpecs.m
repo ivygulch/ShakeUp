@@ -212,10 +212,11 @@ describe(@"earthquakeAPI", ^{
                 IVGEDSLoadDataBlock loadBlock = spy.argument;
                 loadBlock(exampleData);
 
-                [[currentData should] haveCountOf:2];
+                NSArray *expectedIds = @[@(7),@(8)];
+                [[currentData should] haveCountOf:[expectedIds count]];
 
                 NSSet *earthquakeIds = extractEarthquakeIds(currentData);
-                [[earthquakeIds should] containObjectsInArray:@[@(7),@(8)]];
+                [[earthquakeIds should] containObjectsInArray:expectedIds];
             });
 
             it(@"with full lat/lon filter, should return all items", ^{
@@ -242,10 +243,44 @@ describe(@"earthquakeAPI", ^{
                 IVGEDSLoadDataBlock loadBlock = spy.argument;
                 loadBlock(exampleData);
 
-                [[currentData should] haveCountOf:[exampleData count]];
+                NSArray *expectedIds = @[@(1),@(2),@(3),@(4),@(5),@(6),@(7),@(8),@(9)];
+                [[currentData should] haveCountOf:[expectedIds count]];
 
                 NSSet *earthquakeIds = extractEarthquakeIds(currentData);
-                [[earthquakeIds should] containObjectsInArray:@[@(1),@(2),@(3),@(4),@(5),@(6),@(7),@(8),@(9)]];
+                [[earthquakeIds should] containObjectsInArray:expectedIds];
+            });
+
+            it(@"with magnitude filter, should return proper subset", ^{
+                [[earthquakeDataServiceMock should] receive:@selector(loadData:)];
+
+                KWCaptureSpy *spy = [earthquakeDataServiceMock captureArgument:@selector(loadData:) atIndex:0];
+
+                IVGFilterCriteria *filterCriteria = [[IVGFilterCriteria alloc] init];
+                filterCriteria.minimumLatitude = @(-90.0);
+                filterCriteria.maximumLatitude = @(90.0);
+                filterCriteria.minimumLongitude = @(-180.0);
+                filterCriteria.maximumLongitude = @(180.0);
+                filterCriteria.minimumMagnitude = @(22.0);
+                filterCriteria.maximumMagnitude = @(25.0);
+
+                __block NSArray *currentData = nil;
+
+                BOOL valid = [earthquakeAPI
+                              retrieveCurrentData:^(NSArray *data) {
+                                  currentData = data;
+                              }
+                              withFilterCriteria:filterCriteria
+                              error:nil];
+                [[@(valid) should] equal:@(YES)];
+
+                IVGEDSLoadDataBlock loadBlock = spy.argument;
+                loadBlock(exampleData);
+
+                NSArray *expectedIds = @[@(2),@(3),@(4),@(5)];
+                [[currentData should] haveCountOf:[expectedIds count]];
+
+                NSSet *earthquakeIds = extractEarthquakeIds(currentData);
+                [[earthquakeIds should] containObjectsInArray:expectedIds];
             });
         });
     });
