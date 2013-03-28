@@ -45,8 +45,24 @@ describe(@"filterCriteria", ^{
 
         it(@"userInfo should contain criteriaErrors", ^{
             id criteriaErrors = [[error userInfo] objectForKey:@"criteriaErrors"];
-            [criteriaErrors shouldNotBeNil];
+            [[criteriaErrors should] beKindOfClass:[NSDictionary class]];
+
+            [[criteriaErrors should] haveCountOf:4];
+            [[criteriaErrors should] haveValueForKey:@"minimumLatitude"];
+            [[criteriaErrors should] haveValueForKey:@"maximumLatitude"];
+            [[criteriaErrors should] haveValueForKey:@"minimumLongitude"];
+            [[criteriaErrors should] haveValueForKey:@"maximumLongitude"];
         });
+    });
+
+    context(@"when properly configured", ^{
+        __block NSError *error;
+        __block BOOL valid;
+
+        beforeEach(^{
+            valid = [filterCriteria validateCriteriaError:&error];
+        });
+
     });
 
 });
